@@ -1,0 +1,24 @@
+<h1>YUM BURGERS YUM</h1>
+
+2 lists like this - for conditions devoured = 0 and devoured = 1
+<ul>
+  {{#each burgers}}
+  <li>
+    <p>
+      {{this.id}}. {{this.name}}
+
+      <form action="/{{this.id}}?_method=PUT" method="POST">
+        <button type="submit">Devour Burger!!</button>
+      </form>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form method="POST" action="/" class="button-size">
+  <textarea name="burgername"></textarea>
+  <button type="submit">Add Burger!</button>
+</form>
+
+
