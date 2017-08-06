@@ -1,22 +1,33 @@
-var burgerJS = require("../models/burger.js");
 var express = require("express");
 
-var app = express();
+var router = express.Router();
 
-//TODO: will connect with ORM 
-module.exports = function(app) {
+var burger = require("../models/burger.js");
 
-	app.get("/", function(req, res) {
+// Create all our routes and set up logic within those routes where required.
+router.get("/", function(req, res) {
+  burger.selectAll(function(resFromQuery) {
+    var hbsObject = {
+      burgers: resFromQuery
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
+});
 
-	    
-	});
+router.post("/", function(req, res) {
+  burger.insertOne("name", req.body.name, function() {
+    res.redirect("/");
+  });
+});
 
-	app.post("/", function(req, res) {
+router.put("/:id", function(req, res) {
 
-	    
-	});
+  burger.updateOne("devoured", 1, req.params.id, function() {
+    res.redirect("/");
+  });
+});
 
-	app.put("/", function(req, res) {
-	  
-	});
-}
+
+// Export routes for server.js to use.
+module.exports = router;

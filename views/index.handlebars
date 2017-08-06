@@ -1,24 +1,43 @@
-<h1>YUM BURGERS YUM</h1>
+<h1>Eat Da Burger</h1>
 
-2 lists like this - for conditions devoured = 0 and devoured = 1
+<h2>Burgers to Eat</h2>
+
 <ul>
   {{#each burgers}}
-  <li>
-    <p>
-      {{this.id}}. {{this.name}}
+    {{#unless this.devoured}}
+      <li>
+        {{this.name}}
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+          <button type="submit">DEVOUR!</button>
+        </form>
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
 
-      <form action="/{{this.id}}?_method=PUT" method="POST">
-        <button type="submit">Devour Burger!!</button>
-      </form>
-    </p>
-  </li>
+<h2>Burgers Eaten</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if this.devoured}}
+      <li>
+        {{this.name}}
+      </li>
+    {{/if}}
   {{/each}}
 </ul>
 
 <h2>Add a Burger</h2>
-<form method="POST" action="/" class="button-size">
-  <textarea name="burgername"></textarea>
-  <button type="submit">Add Burger!</button>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <button type="submit">Add Burger</button>
 </form>
+
 
 

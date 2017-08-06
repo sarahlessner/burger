@@ -1,28 +1,37 @@
-var connect = require("./connection.js");
+var connection = require("./connection.js");
 
-function selectAll() {
-	connection.query("SELECT * FROM burgers", function(err, result) {
-		if (err) {
-      		throw err;
-    	}
-    	res.render("index", { burgers: data });
-	});
+var orm = {
+	//select all from burger where devoured is 0
+	selectAll: function(table, cbFromBurger) {
+    var queryString = "SELECT * FROM ??";
+    connection.query(queryString, [table], function(err, result) {
+      if (err) {
+	      throw err;
+	    }
+      cbFromBurger(result);
+    });
 
-}
+	},
+	//insert into burgers (burgerName)
+	insertOne: function(table, cols, vals, cbFromBurger) {
+		var queryString = "INSERT INTO ?? (??) VALUES (?)";
+		connection.query(queryString, [table, cols, vals], function(err, result) {
+			if (err) {
+	      		throw err;
+	    	}
+	    	cbFromBurger(result);
+		});
+	},
+	//update burgers set devoured to 1 where id is (this.id)
+	updateOne: function(table, colToSearch, ObjColVals, id, cbFromBurger) {
+		var queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
+		connection.query(queryString, [table, colToSearch, ObjColVals, id], function(err, result) {
+		    if (err) {
+		     	throw err;
+		    }
+		    cbFromBurger(result);
+		});
+	}
+};
 
-function insertOne() {
-	connection.query("INSERT INTO burgers (name) VALUES (?)", [req.params.name], function(err, result) {
-		if (err) {
-      		throw err;
-    	}
-    	res.redirect("/");
-	});
-}
-
-function updateOne() {
-	connection.query("UPDATE burgers SET devoured = 1 WHERE id = ?", [req.body.name, req.body.id], function(err, result) {
-    if (err) {
-     	throw err;
-    }
-    res.redirect("/");
-}
+module.exports = orm;
