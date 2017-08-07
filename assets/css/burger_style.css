@@ -1,6 +1,6 @@
 body {
-	background: black;
-	color: white;
+	/*background: black;
+	color: white;*/
 }
 
 /*img {
@@ -12,7 +12,6 @@ body {
 	position: relative;
 	overflow: hidden;
 }
-
 .jumbotron h1 {
 	padding: 20px;
 	position: relative;
@@ -22,7 +21,6 @@ body {
 	font-size: 80px;
 
 }
-
 .jumbotron img {
 	position: absolute;
 	top: 0;
@@ -38,12 +36,40 @@ button {
 	border-radius: 10%;
 }
 
+/*li {
+	list-style: none;
+}*/
+
+.tbd li {
+	list-style: none;
+
+}
+
+li .burger-name {
+	float: left;
+}
+
+li button {
+	float: right;
+	margin-bottom: 10px;
+	margin-right: 40px;
+}
+
+/*.namelist {
+	float: left;
+}*/
+
+/*.btnlist {
+    position: absolute;
+    right: 0;
+}*/
+
 /*
 .tbd {
-	clear: both;
+	float: left;
 }
 
 .devoured {
-	float: right;
+	float: left;
 }*/
 
