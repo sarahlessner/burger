@@ -150,6 +150,6 @@ li .burger-name {
 	.tbd,
 	.devoured {
 		width: 100%;
-		margin-right: 15px;
+		margin: 0;
 	}
 }
