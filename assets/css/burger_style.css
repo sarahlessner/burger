@@ -1,12 +1,18 @@
 body {
-	/*background: black;
-	color: white;*/
+	font-family: helvetica;
+	background: #eee;
 }
 
-/*img {
-	max-width: 250px;
-	
-}*/
+h2, h3{
+	font-family: 'Ubuntu', sans-serif;
+
+}
+
+.jumbotron,
+.panel {
+	background-color: black;
+	color: #eee;
+}
 
 .jumbotron {
 	position: relative;
@@ -17,59 +23,123 @@ body {
 	position: relative;
 	z-index: 2;
 	font-family: 'Pacifico', cursive;
-	color: black;
-	font-size: 80px;
-
+	font-size: 90px;
 }
+
+/*header burger images placement*/
 .jumbotron img {
 	position: absolute;
+	opacity: 0.6;
+	max-width: 200px;
+}
+.img1 {
 	top: 0;
-	left: 250px;
-	opacity: 0.5;
-	max-width: 340px;
-
+	left: 380px;	
+}
+.img2 {
+	top: 20px;
+	left: 20px;
+}
+.img3 {
+	top: 80px;
+	left: 540px;
+}
+.img4 {
+	top: 0;
+	right: 220px;	
+}
+.img5 {
+	top: 0;
+	left: 190px;
+}
+.img6 {
+	top: 0;
+	right: 20px;	
 }
 
-button {
-	background: chartreuse;
+.panel {
+	/*background: #dff7f2;*/
+	margin-bottom: 10px;
+}
+
+
+hr,
+.page-header {
+	border-color: darkgray;
+}
+
+.btn {
+	background: #f76677;
+	color: white;
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	font-size: 16px;
+}
+.btn:hover {
+	background: lightblue;
 	color: black;
-	border-radius: 10%;
+	font-weight: bold;
 }
-
-/*li {
-	list-style: none;
-}*/
-
-.tbd li {
-	list-style: none;
-
+.submitbtn {
+	font-size: 22px;
+	background: #8edaa6;
 }
-
-li .burger-name {
-	float: left;
-}
-
 li button {
 	float: right;
 	margin-bottom: 10px;
 	margin-right: 40px;
 }
-
-/*.namelist {
-	float: left;
-}*/
-
-/*.btnlist {
-    position: absolute;
-    right: 0;
-}*/
-
-/*
-.tbd {
+li .burger-name {
 	float: left;
 }
 
+.tbd li {
+	list-style: none;
+	font-size: 20px;
+
+}
+
+.tbd hr:last-child {
+	display: none;
+}
+
+.new-burger,
+.tbd {
+	margin-left: 15px;
+}
+
 .devoured {
-	float: left;
+	margin-left: 165px;
+}
+
+#ca {
+	height: 80px;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 30px;
+	color: black;
+}
+.btn:focus,
+#ca:focus {
+	border-color: #f76677;
+	box-shadow: 0px 1px 1px rgba(247,102,119, 0.075) inset, 0px 0px 8px rgba(247,102,119, 0.5);
+	outline: 0;
+}
+
+/*input:focus {
+	outline: 0;
 }*/
+
+#ca::placeholder {
+	font-size: 30px;
+
+}
+
+.burger-name {
+	font-family: 'Shadows Into Light Two', cursive;
+	font-size: 30px;
+}
+
+
+
 
