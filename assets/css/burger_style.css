@@ -144,4 +144,11 @@ li .burger-name {
 
 
 
+@media screen and (max-width: 768px) {
 
+	
+	.tbd,
+	.devoured {
+		width: 100%;
+	}
+}
