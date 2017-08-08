@@ -1,4 +1,4 @@
-# Eat All the Burgers
+:hamburger: # Eat All the Burgers :hamburger:
 
 ### Overview
 
